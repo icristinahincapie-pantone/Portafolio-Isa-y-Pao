@@ -3,8 +3,8 @@
 @theme inline {
   --color-background: #ffffff;
   --color-foreground: #0a0a0a;
-  --color-primary: #7c3aed;
-  --color-primary-dark: #5b21b6;
+  --color-primary: #e91e63;
+  --color-primary-dark: #c2185b;
   --color-gold: #f5a623;
   --color-gold-dark: #d4891a;
   --color-purple: #6c3fa0;
@@ -21,11 +21,23 @@
   --font-mono: 'JetBrains Mono', monospace;
   --animate-scroll: scroll 30s linear infinite;
   --animate-float: float 6s ease-in-out infinite;
+  --animate-marquee: marquee 40s linear infinite;
+  --animate-marquee-reverse: marquee-reverse 40s linear infinite;
 }
 
 @keyframes scroll {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes marquee-reverse {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
 }
 
 @keyframes float {
@@ -44,12 +56,12 @@ body {
 }
 
 ::selection {
-  background: #7c3aed;
+  background: #e91e63;
   color: white;
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, #f5a623, #7c3aed);
+  background: linear-gradient(135deg, #e91e63, #f5a623);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -63,7 +75,7 @@ body {
 }
 
 .gradient-gold {
-  background: linear-gradient(135deg, #f5a623, #d4891a);
+  background: linear-gradient(135deg, #f5a623, #e91e63);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -82,8 +94,4 @@ body {
   background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-}
-
-.font-descriptor {
-  font-family: var(--font-elms-sans), system-ui, -apple-system, sans-serif;
 }

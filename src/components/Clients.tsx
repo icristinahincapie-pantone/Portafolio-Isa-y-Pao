@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { LogoCloud } from "@/components/ui/logo-cloud-2";
+import { BrandScroller } from "@/components/ui/brand-scroller";
 
 export default function Clients() {
   return (
@@ -14,7 +14,7 @@ export default function Clients() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="text-sm font-semibold tracking-widest uppercase text-primary font-descriptor">
+          <span className="text-sm font-semibold tracking-widest uppercase text-primary">
             Clientes
           </span>
           <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight">
@@ -29,7 +29,7 @@ export default function Clients() {
           transition={{ duration: 0.6, delay: 0.2 }}
         >
           <div className="mb-8 text-center">
-            <span className="block text-lg font-medium text-muted-foreground font-descriptor">
+            <span className="block text-lg font-medium text-muted-foreground">
               Ya trabajamos con
             </span>
             <span className="font-bold text-2xl text-primary tracking-tight md:text-3xl">
@@ -37,11 +37,9 @@ export default function Clients() {
             </span>
           </div>
 
-          <div className="mx-auto mb-6 h-px max-w-sm bg-border [mask-image:linear-gradient(to_right,transparent,black,transparent)]" />
+          <div className="mx-auto mb-8 h-px max-w-sm bg-border [mask-image:linear-gradient(to_right,transparent,black,transparent)]" />
 
-          <LogoCloud />
-
-          <div className="mt-6 h-px bg-border [mask-image:linear-gradient(to_right,transparent,black,transparent)]" />
+          <BrandScroller />
         </motion.div>
       </div>
     </section>
