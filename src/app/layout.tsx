@@ -3,15 +3,24 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-inter",
 });
 
 export const metadata: Metadata = {
-  title: "Isa & Pao | Agencia Creativa - Branding, Marketing y Diseño UX/UI",
+  title: "Isa & Pao | Agencia Creativa - Branding, Marketing y Diseño Digital",
   description:
     "Agencia especializada en branding, marketing digital, diseño UX/UI, desarrollo web, fotografía y producción audiovisual para empresas que buscan crecer y diferenciarse.",
+  keywords: [
+    "agencia creativa",
+    "branding",
+    "marketing digital",
+    "diseño UX/UI",
+    "desarrollo web",
+    "fotografía corporativa",
+    "producción audiovisual",
+  ],
   openGraph: {
     title: "Isa & Pao | Agencia Creativa",
     description:
@@ -22,12 +31,14 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   return (
-    <html lang="es" className={inter.variable}>
-      <body>{children}</body>
+    <html lang="es" className={`${inter.variable} h-full antialiased`}>
+      <body className="min-h-full flex flex-col bg-background text-foreground">
+        {children}
+      </body>
     </html>
   );
 }

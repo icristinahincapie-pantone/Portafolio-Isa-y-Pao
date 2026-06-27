@@ -1,109 +1,127 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { TrendingUp, Users, Target, BarChart3 } from "lucide-react";
 
 const cases = [
   {
-    title: "Transformación Digital",
-    problem: "Marca con presencia offline limitada y baja visibilidad digital.",
-    solution: "Estrategia digital 360 integrando redes sociales, SEO, pauta y contenido.",
-    result: "+250% alcance orgánico en 3 meses.",
+    problem: "Bajo reconocimiento de marca en el sector salud",
+    solution: "Estrategia de branding integral y campaña digital multicanal",
     metrics: [
-      { label: "Alcance", value: "2.5M" },
-      { label: "Conversión", value: "18%" },
-      { label: "Engagement", value: "4.5%" },
-      { label: "Crecimiento", value: "200%" },
+      { label: "Alcance", value: "2.5M+", icon: Users },
+      { label: "Conversión", value: "35%", icon: Target },
+      { label: "Engagement", value: "4.8x", icon: TrendingUp },
+      { label: "Crecimiento", value: "180%", icon: BarChart3 },
     ],
-    color: "from-gold to-amber-500",
   },
   {
-    title: "Rebranding Corporativo",
-    problem: "Identidad visual desactualizada que no conectaba con audiencia moderna.",
-    solution: "Rediseño completo de marca incluyendo logo, paleta, tipografía y manual.",
-    result: "+180% reconocimiento de marca.",
+    problem: "Alta tasa de abandono en e-commerce",
+    solution: "Rediseño UX/UI y optimización del funnel de conversión",
     metrics: [
-      { label: "Alcance", value: "1.8M" },
-      { label: "Conversión", value: "12%" },
-      { label: "Engagement", value: "6.2%" },
-      { label: "Crecimiento", value: "150%" },
+      { label: "Alcance", value: "1.8M+", icon: Users },
+      { label: "Conversión", value: "42%", icon: Target },
+      { label: "Engagement", value: "3.2x", icon: TrendingUp },
+      { label: "Crecimiento", value: "220%", icon: BarChart3 },
     ],
-    color: "from-purple-light to-purple",
   },
   {
-    title: "Lanzamiento Digital",
-    problem: "Producto nuevo sin presencia online ni reconocimiento de marca.",
-    solution: "Campaña lanzamiento multicanal con influencers, pauta y PR digital.",
-    result: "+320% ventas en el primer mes.",
+    problem: "Presencia digital inexistente para startup tecnológica",
+    solution: "Desarrollo web + estrategia de contenido + pauta digital",
     metrics: [
-      { label: "Alcance", value: "3.2M" },
-      { label: "Conversión", value: "22%" },
-      { label: "Engagement", value: "8.1%" },
-      { label: "Crecimiento", value: "320%" },
+      { label: "Alcance", value: "3.1M+", icon: Users },
+      { label: "Conversión", value: "28%", icon: Target },
+      { label: "Engagement", value: "5.1x", icon: TrendingUp },
+      { label: "Crecimiento", value: "310%", icon: BarChart3 },
     ],
-    color: "from-gold to-purple-light",
   },
 ];
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.15 },
+  },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut" as const },
+  },
+};
+
 export default function CaseStudies() {
   return (
-    <section className="relative py-32 px-6 bg-dark-2 overflow-hidden">
-      <div className="max-w-7xl mx-auto">
+    <section id="casos" className="py-20 sm:py-28 bg-white relative overflow-hidden">
+      <div className="absolute top-1/2 right-0 w-[500px] h-[500px] bg-violet-50 rounded-full blur-3xl translate-x-1/2 pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-gold to-purple-light bg-clip-text text-transparent">
-              Casos de Éxito
-            </span>
+          <span className="text-sm font-semibold tracking-widest uppercase text-primary">
+            Casos de Éxito
+          </span>
+          <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight">
+            Resultados que <span className="gradient-text">hablan</span> por sí solos
           </h2>
-          <p className="text-gray-400 text-lg">Resultados que hablan por sí solos</p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          {cases.map((c, i) => (
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          className="grid grid-cols-1 md:grid-cols-3 gap-6"
+        >
+          {cases.map((c, idx) => (
             <motion.div
-              key={c.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.15 }}
-              className="group relative rounded-2xl border border-white/5 bg-dark-3/50 p-6 hover:-translate-y-2 transition-all duration-500"
+              key={idx}
+              variants={cardVariants}
+              className="card-hover p-8 rounded-2xl border border-gray-100 bg-white"
             >
-              <div className={`h-1.5 rounded-full bg-gradient-to-r ${c.color} mb-6`} />
-
-              <h3 className="text-xl font-bold text-white mb-4">{c.title}</h3>
-
-              <div className="space-y-3 mb-6">
-                <div>
-                  <span className="text-xs text-gray-500 uppercase tracking-wider">Problema</span>
-                  <p className="text-sm text-gray-300 mt-0.5">{c.problem}</p>
+              <div className="mb-6">
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="text-xs font-semibold tracking-widest uppercase text-gray-400">
+                    Problema
+                  </span>
                 </div>
-                <div>
-                  <span className="text-xs text-gray-500 uppercase tracking-wider">Solución</span>
-                  <p className="text-sm text-gray-300 mt-0.5">{c.solution}</p>
-                </div>
-                <div>
-                  <span className="text-xs text-gray-500 uppercase tracking-wider">Resultado</span>
-                  <p className="text-sm font-medium text-gold-light mt-0.5">{c.result}</p>
-                </div>
+                <p className="text-sm text-gray-700 font-medium">{c.problem}</p>
               </div>
 
-              <div className="grid grid-cols-2 gap-3 pt-4 border-t border-white/5">
-                {c.metrics.map((m) => (
-                  <div key={m.label} className="text-center">
-                    <p className="text-2xl font-bold bg-gradient-to-r from-gold to-purple-light bg-clip-text text-transparent">
-                      {m.value}
-                    </p>
-                    <p className="text-xs text-gray-500">{m.label}</p>
-                  </div>
-                ))}
+              <div className="mb-6">
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="text-xs font-semibold tracking-widest uppercase text-gray-400">
+                    Solución
+                  </span>
+                </div>
+                <p className="text-sm text-gray-700 font-medium">{c.solution}</p>
+              </div>
+
+              <div className="border-t border-gray-50 pt-6">
+                <div className="grid grid-cols-2 gap-4">
+                  {c.metrics.map((metric) => {
+                    const Icon = metric.icon;
+                    return (
+                      <div key={metric.label} className="text-center">
+                        <Icon className="w-5 h-5 text-primary mx-auto mb-1" />
+                        <p className="text-2xl font-bold gradient-text">{metric.value}</p>
+                        <p className="text-xs text-gray-400 mt-0.5">{metric.label}</p>
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

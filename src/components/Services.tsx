@@ -1,75 +1,102 @@
 "use client";
 
 import { motion } from "framer-motion";
+import {
+  Megaphone,
+  Share2,
+  BarChart3,
+  Palette,
+  Monitor,
+  Smartphone,
+  Globe,
+  Layout,
+  Camera,
+  Video,
+  PenTool,
+  Headphones,
+} from "lucide-react";
 
 const services = [
-  { title: "Pauta publicitaria Meta Ads y Google Ads", desc: "Campañas optimizadas para maximizar tu ROI en las principales plataformas digitales.", icon: "📊" },
-  { title: "Manejo de redes sociales", desc: "Gestión profesional de tu presencia en redes con contenido estratégico y de calidad.", icon: "📱" },
-  { title: "Estrategias de marketing digital", desc: "Planes personalizados para alcanzar tus objetivos de negocio en el entorno digital.", icon: "🎯" },
-  { title: "Branding e identidad corporativa", desc: "Construimos marcas memorables con identidad visual coherente y diferenciadora.", icon: "✨" },
-  { title: "Diseño UX/UI", desc: "Interfaces intuitivas y atractivas que mejoran la experiencia de tus usuarios.", icon: "🎨" },
-  { title: "Prototipado de aplicaciones", desc: "Convertimos tus ideas en prototipos funcionales listos para desarrollo.", icon: "⚡" },
-  { title: "Desarrollo de páginas web", desc: "Sitios web modernos, rápidos y optimizados para conversión.", icon: "🌐" },
-  { title: "Landing pages de conversión", desc: "Páginas diseñadas estratégicamente para convertir visitantes en clientes.", icon: "🚀" },
-  { title: "Fotografía empresarial", desc: "Imágenes profesionales que transmiten la esencia de tu marca.", icon: "📸" },
-  { title: "Video corporativo", desc: "Producción audiovisual de alto impacto para tu comunicación empresarial.", icon: "🎬" },
-  { title: "Producción de contenido para redes", desc: "Contenido visual y escrito que engage con tu audiencia.", icon: "📝" },
-  { title: "Consultoría digital", desc: "Asesoría experta para optimizar tu estrategia digital integral.", icon: "💡" },
+  { icon: Megaphone, title: "Pauta publicitaria", description: "Meta Ads y Google Ads" },
+  { icon: Share2, title: "Manejo de redes sociales", description: "Community management" },
+  { icon: BarChart3, title: "Estrategias de marketing digital", description: "Planificación y ejecución" },
+  { icon: Palette, title: "Branding e identidad corporativa", description: "Diseño de marca" },
+  { icon: Monitor, title: "Diseño UX/UI", description: "Experiencia de usuario" },
+  { icon: Smartphone, title: "Prototipado de aplicaciones", description: "Apps nativas y web" },
+  { icon: Globe, title: "Desarrollo de páginas web", description: "Sitios corporativos" },
+  { icon: Layout, title: "Landing pages de conversión", description: "Páginas optimizadas" },
+  { icon: Camera, title: "Fotografía empresarial", description: "Imagen corporativa" },
+  { icon: Video, title: "Video corporativo", description: "Producción audiovisual" },
+  { icon: PenTool, title: "Producción de contenido", description: "Para redes sociales" },
+  { icon: Headphones, title: "Consultoría digital", description: "Asesoría estratégica" },
 ];
 
-const container = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.08 } },
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.05 },
+  },
 };
 
-const item = {
+const itemVariants = {
   hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" as const } },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: "easeOut" as const },
+  },
 };
 
 export default function Services() {
   return (
-    <section id="servicios" className="relative py-32 px-6 bg-dark-2 overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(212,160,23,0.03)_0%,_transparent_50%)]" />
-      <div className="max-w-7xl mx-auto relative z-10">
+    <section id="servicios" className="py-20 sm:py-28 bg-white relative overflow-hidden">
+      <div className="absolute top-0 right-0 w-96 h-96 bg-rose-50 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-20"
+          className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-gold to-purple-light bg-clip-text text-transparent">
-              Nuestros Servicios
-            </span>
+          <span className="text-sm font-semibold tracking-widest uppercase text-primary">
+            Nuestros Servicios
+          </span>
+          <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight">
+            Soluciones <span className="gradient-text">integrales</span> para tu marca
           </h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Soluciones integrales para tu marca
+          <p className="mt-4 text-gray-500 max-w-2xl mx-auto text-lg">
+            De la estrategia a la ejecución, cubrimos cada aspecto de tu presencia digital.
           </p>
         </motion.div>
 
         <motion.div
-          variants={container}
+          variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
+          viewport={{ once: true, margin: "-50px" }}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4"
         >
-          {services.map((s, i) => (
-            <motion.div
-              key={i}
-              variants={item}
-              className="group relative p-6 rounded-2xl border border-white/5 bg-dark-3/50 backdrop-blur-sm hover:bg-dark-3 hover:border-gold/20 transition-all duration-500 hover:-translate-y-2"
-            >
-              <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-gold/5 to-purple-light/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <div className="relative z-10">
-                <span className="text-3xl mb-4 block">{s.icon}</span>
-                <h3 className="text-lg font-semibold text-white mb-2">{s.title}</h3>
-                <p className="text-sm text-gray-400 leading-relaxed">{s.desc}</p>
-              </div>
-            </motion.div>
-          ))}
+          {services.map((service) => {
+            const Icon = service.icon;
+            return (
+              <motion.div
+                key={service.title}
+                variants={itemVariants}
+                className="group card-hover p-6 rounded-2xl border border-gray-100 bg-white hover:border-primary/20 hover:bg-gradient-to-br hover:from-rose-50 hover:to-white"
+              >
+                <div className="w-12 h-12 rounded-xl bg-primary/5 flex items-center justify-center mb-4 group-hover:bg-primary/10 transition-colors">
+                  <Icon className="w-6 h-6 text-primary" />
+                </div>
+                <h3 className="text-base font-semibold text-gray-900 mb-1">
+                  {service.title}
+                </h3>
+                <p className="text-sm text-gray-400">{service.description}</p>
+              </motion.div>
+            );
+          })}
         </motion.div>
       </div>
     </section>

@@ -1,103 +1,147 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { ChevronLeft, ChevronRight, Star } from "lucide-react";
 
 const testimonials = [
   {
     name: "Carlos Mendoza",
-    company: "TechCorp",
+    company: "TechSolutions SAS",
     role: "CEO",
-    text: "Trabajar con Isa & Pao transformó nuestra marca. Su enfoque estratégico y creativo superó todas nuestras expectativas.",
-    initials: "CM",
+    text: "Trabajar con Isa & Pao transformó completamente nuestra presencia digital. Su enfoque estratégico y creativo superó todas nuestras expectativas. Los resultados hablan por sí solos.",
+    rating: 5,
   },
   {
-    name: "María González",
-    company: "Grupo Nova",
+    name: "Ana María Gómez",
+    company: "Grupo Éxito",
     role: "Directora de Marketing",
-    text: "El equipo de Isa & Pao entendió nuestra visión desde el primer día. Los resultados hablan por sí solos.",
-    initials: "MG",
+    text: "Profesionalismo y creatividad excepcionales. Lograron capturar la esencia de nuestra marca y traducirla en una experiencia digital memorable.",
+    rating: 5,
   },
   {
-    name: "Andrés Ramírez",
-    company: "StartUpLab",
-    role: "Founder",
-    text: "Profesionalismo, creatividad y resultados. Así definimos nuestra experiencia con Isa & Pao.",
-    initials: "AR",
+    name: "Juan Pablo Restrepo",
+    company: "Colombina",
+    role: "Brand Manager",
+    text: "La mejor inversión que hemos hecho en marketing digital. El equipo entiende realmente las necesidades del negocio y entrega resultados medibles.",
+    rating: 5,
   },
   {
-    name: "Laura Botero",
-    company: "Colsubsidio",
-    role: "Gerente de Marca",
-    text: "Su capacidad para conectar estrategia con diseño es impresionante. Altamente recomendados.",
-    initials: "LB",
+    name: "Laura Jiménez",
+    company: "Avianca",
+    role: "Head of Digital",
+    text: "Un enfoque fresco y moderno que revitalizó nuestra estrategia digital. Altamente recomendadas para proyectos de transformación digital.",
+    rating: 5,
   },
 ];
 
 export default function Testimonials() {
   const [current, setCurrent] = useState(0);
+  const [direction, setDirection] = useState(0);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % testimonials.length);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, []);
+  const paginate = (newDirection: number) => {
+    setDirection(newDirection);
+    setCurrent((prev) => {
+      let next = prev + newDirection;
+      if (next < 0) next = testimonials.length - 1;
+      if (next >= testimonials.length) next = 0;
+      return next;
+    });
+  };
 
-  const t = testimonials[current];
+  const variants = {
+    enter: (dir: number) => ({ x: dir > 0 ? 200 : -200, opacity: 0 }),
+    center: { x: 0, opacity: 1 },
+    exit: (dir: number) => ({ x: dir > 0 ? -200 : 200, opacity: 0 }),
+  };
 
   return (
-    <section className="relative py-32 px-6 bg-dark-2 overflow-hidden">
-      <div className="max-w-4xl mx-auto text-center">
-        <motion.h2
-          initial={{ opacity: 0, y: 30 }}
+    <section className="py-20 sm:py-28 bg-gradient-to-br from-gray-50 to-rose-50 relative overflow-hidden">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-rose-100/30 rounded-full blur-3xl pointer-events-none" />
+
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-4xl md:text-5xl font-bold mb-16"
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-12"
         >
-          <span className="bg-gradient-to-r from-gold to-purple-light bg-clip-text text-transparent">
-            Lo que dicen nuestros clientes
+          <span className="text-sm font-semibold tracking-widest uppercase text-primary">
+            Testimonios
           </span>
-        </motion.h2>
+          <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight">
+            Lo que dicen <span className="gradient-text">nuestros clientes</span>
+          </h2>
+        </motion.div>
 
-        <div className="relative min-h-[300px] flex items-center justify-center">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={current}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.5 }}
-              className="absolute inset-0 flex flex-col items-center justify-center"
-            >
-              <div className="text-6xl text-gold/20 font-serif mb-6 leading-none">"</div>
-              <p className="text-xl md:text-2xl text-gray-200 leading-relaxed max-w-3xl mb-8 italic">
-                {t.text}
-              </p>
-              <div className="flex items-center gap-4">
-                <div className="w-14 h-14 rounded-full bg-gradient-to-br from-gold to-purple-light flex items-center justify-center text-sm font-bold text-white">
-                  {t.initials}
+        <div className="relative">
+          <div className="overflow-hidden">
+            <AnimatePresence mode="wait" custom={direction}>
+              <motion.div
+                key={current}
+                custom={direction}
+                variants={variants}
+                initial="enter"
+                animate="center"
+                exit="exit"
+                transition={{ duration: 0.4, ease: "easeInOut" }}
+                className="bg-white rounded-3xl p-8 sm:p-12 shadow-sm border border-gray-50 text-center"
+              >
+                <div className="flex justify-center gap-1 mb-6">
+                  {Array.from({ length: testimonials[current].rating }).map((_, i) => (
+                    <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
+                  ))}
                 </div>
-                <div className="text-left">
-                  <p className="text-white font-semibold">{t.name}</p>
-                  <p className="text-sm text-gray-400">{t.role}, {t.company}</p>
-                </div>
-              </div>
-            </motion.div>
-          </AnimatePresence>
-        </div>
 
-        <div className="flex justify-center gap-3 mt-10">
-          {testimonials.map((_, i) => (
+                <p className="text-lg sm:text-xl text-gray-600 leading-relaxed italic mb-8">
+                  &ldquo;{testimonials[current].text}&rdquo;
+                </p>
+
+                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-purple-400 flex items-center justify-center mx-auto mb-3">
+                  <span className="text-white font-bold text-lg">
+                    {testimonials[current].name.split(" ").map((n) => n[0]).join("")}
+                  </span>
+                </div>
+
+                <p className="font-semibold text-gray-900">{testimonials[current].name}</p>
+                <p className="text-sm text-gray-400">
+                  {testimonials[current].role} · {testimonials[current].company}
+                </p>
+              </motion.div>
+            </AnimatePresence>
+          </div>
+
+          <div className="flex items-center justify-center gap-4 mt-8">
             <button
-              key={i}
-              onClick={() => setCurrent(i)}
-              className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                i === current ? "bg-gold w-8" : "bg-gray-600"
-              }`}
-              aria-label={`Testimonio ${i + 1}`}
-            />
-          ))}
+              onClick={() => paginate(-1)}
+              className="w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center hover:border-primary hover:text-primary transition-colors"
+              aria-label="Anterior"
+            >
+              <ChevronLeft className="w-5 h-5" />
+            </button>
+
+            <div className="flex gap-2">
+              {testimonials.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => { setDirection(idx > current ? 1 : -1); setCurrent(idx); }}
+                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                    idx === current ? "w-8 bg-primary" : "bg-gray-300"
+                  }`}
+                  aria-label={`Testimonio ${idx + 1}`}
+                />
+              ))}
+            </div>
+
+            <button
+              onClick={() => paginate(1)}
+              className="w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center hover:border-primary hover:text-primary transition-colors"
+              aria-label="Siguiente"
+            >
+              <ChevronRight className="w-5 h-5" />
+            </button>
+          </div>
         </div>
       </div>
     </section>

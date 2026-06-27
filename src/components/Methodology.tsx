@@ -1,84 +1,105 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Search, Route, Monitor, Camera, Rocket, TrendingUp } from "lucide-react";
 
 const steps = [
-  { num: "01", title: "Investigación", desc: "Análisis profundo del mercado, competencia y audiencia objetivo para entender el contexto y las oportunidades." },
-  { num: "02", title: "Estrategia", desc: "Definición de objetivos, KPIs y plan de acción personalizado alineado con las metas de tu negocio." },
-  { num: "03", title: "UX/UI", desc: "Diseño de experiencias intuitivas centradas en el usuario que combinan funcionalidad y estética." },
-  { num: "04", title: "Producción creativa", desc: "Desarrollo de contenido visual, piezas publicitarias y materiales de comunicación de alto impacto." },
-  { num: "05", title: "Implementación", desc: "Ejecución técnica, desarrollo y lanzamiento de campañas y plataformas digitales." },
-  { num: "06", title: "Optimización", desc: "Monitoreo continuo, análisis de datos y ajustes estratégicos para maximizar resultados." },
+  { step: 1, title: "Investigación", icon: Search, description: "Analizamos tu mercado, competencia y audiencia para entender el contexto." },
+  { step: 2, title: "Estrategia", icon: Route, description: "Definimos objetivos, KPIs y el plan de acción personalizado." },
+  { step: 3, title: "UX/UI", icon: Monitor, description: "Diseñamos interfaces centradas en la experiencia del usuario." },
+  { step: 4, title: "Producción creativa", icon: Camera, description: "Desarrollamos contenido visual y audiovisual de alto impacto." },
+  { step: 5, title: "Implementación", icon: Rocket, description: "Ejecutamos la estrategia con herramientas y tecnologías modernas." },
+  { step: 6, title: "Optimización", icon: TrendingUp, description: "Medimos resultados y optimizamos continuamente para mejorar." },
 ];
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.1 },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, x: -30 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.5, ease: "easeOut" as const },
+  },
+};
 
 export default function Methodology() {
   return (
-    <section className="relative py-32 px-6 bg-dark overflow-hidden">
-      <div className="max-w-7xl mx-auto">
+    <section id="metodologia" className="py-20 sm:py-28 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
+      <div className="absolute top-0 left-0 w-[400px] h-[400px] bg-rose-50 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-20"
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-gold to-purple-light bg-clip-text text-transparent">
-              Nuestra Metodología
-            </span>
+          <span className="text-sm font-semibold tracking-widest uppercase text-primary">
+            Metodología
+          </span>
+          <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight">
+            Nuestro <span className="gradient-text">proceso</span> de trabajo
           </h2>
-          <p className="text-gray-400 text-lg">Un proceso probado para garantizar resultados</p>
+          <p className="mt-4 text-gray-500 max-w-2xl mx-auto">
+            Seis pasos para transformar tu visión en resultados tangibles.
+          </p>
         </motion.div>
 
-        <div className="hidden lg:block relative">
-          <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-gold via-purple-light to-transparent -translate-x-1/2" />
+        <div className="relative">
+          <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-purple-400 to-amber-300 -translate-x-1/2" />
 
-          <div className="space-y-20">
-            {steps.map((step, i) => (
-              <motion.div
-                key={step.num}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ delay: i * 0.1 }}
-                className={`flex items-center gap-8 ${i % 2 === 0 ? "flex-row" : "flex-row-reverse"}`}
-              >
-                <div className={`flex-1 ${i % 2 === 0 ? "text-right" : "text-left"}`}>
-                  <h3 className="text-2xl font-bold text-white mb-2">{step.title}</h3>
-                  <p className="text-gray-400 text-sm leading-relaxed max-w-md">{step.desc}</p>
-                </div>
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            className="space-y-8 lg:space-y-0"
+          >
+            {steps.map((s, idx) => {
+              const Icon = s.icon;
+              const isLeft = idx % 2 === 0;
 
-                <div className="shrink-0 w-14 h-14 rounded-full bg-dark-3 border border-gold/30 flex items-center justify-center text-sm font-bold text-gold z-10">
-                  {step.num}
-                </div>
+              return (
+                <motion.div
+                  key={s.step}
+                  variants={itemVariants}
+                  className={`flex flex-col lg:flex-row items-center gap-6 lg:gap-12 ${
+                    isLeft ? "lg:flex-row" : "lg:flex-row-reverse"
+                  }`}
+                >
+                  <div className={`flex-1 ${isLeft ? "lg:text-right" : "lg:text-left"}`}>
+                    <div className={`p-6 sm:p-8 rounded-2xl border border-gray-100 bg-white card-hover inline-block max-w-md ${
+                      isLeft ? "lg:ml-auto" : "lg:mr-auto"
+                    }`}>
+                      <div className={`flex items-center gap-3 mb-3 ${isLeft ? "lg:flex-row-reverse" : ""}`}>
+                        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-purple-400 flex items-center justify-center flex-shrink-0">
+                          <span className="text-white font-bold text-sm">{s.step}</span>
+                        </div>
+                        <h3 className="text-lg font-bold text-gray-900">{s.title}</h3>
+                      </div>
+                      <p className={`text-sm text-gray-500 ${isLeft ? "lg:text-right" : ""}`}>
+                        {s.description}
+                      </p>
+                    </div>
+                  </div>
 
-                <div className="flex-1" />
-              </motion.div>
-            ))}
-          </div>
-        </div>
+                  <div className="hidden lg:flex items-center justify-center w-12 h-12 rounded-full bg-white border-2 border-primary/20 shadow-sm z-10 flex-shrink-0">
+                    <Icon className="w-5 h-5 text-primary" />
+                  </div>
 
-        <div className="lg:hidden relative">
-          <div className="absolute left-7 top-0 bottom-0 w-px bg-gradient-to-b from-gold via-purple-light to-transparent" />
-          <div className="space-y-12">
-            {steps.map((step, i) => (
-              <motion.div
-                key={step.num}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="flex gap-6"
-              >
-                <div className="shrink-0 w-14 h-14 rounded-full bg-dark-3 border border-gold/30 flex items-center justify-center text-sm font-bold text-gold z-10">
-                  {step.num}
-                </div>
-                <div className="pt-2">
-                  <h3 className="text-lg font-bold text-white mb-1">{step.title}</h3>
-                  <p className="text-gray-400 text-sm">{step.desc}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+                  <div className="flex-1 hidden lg:block" />
+                </motion.div>
+              );
+            })}
+          </motion.div>
         </div>
       </div>
     </section>

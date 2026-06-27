@@ -1,86 +1,142 @@
 "use client";
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
+import { ArrowUpRight, Palette, Globe, Monitor, Camera, Video, BarChart3 } from "lucide-react";
 
 const projects = [
-  { title: "Identidad Corporativa", category: "Branding", desc: "Rebranding completo para empresa del sector salud con enfoque moderno y humano.", results: "+180% reconocimiento de marca", color: "from-gold to-amber-500" },
-  { title: "E-commerce Platform", category: "Desarrollo Web", desc: "Tienda online con experiencia de compra optimizada y tasa de conversión superior.", results: "+250% ventas online", color: "from-purple-light to-purple" },
-  { title: "App Financiera", category: "UX/UI", desc: "Rediseño de interfaz para app bancaria mejorando usabilidad y accesibilidad.", results: "NPS +45 puntos", color: "from-gold to-purple-light" },
-  { title: "Catálogo Profesional", category: "Fotografía", desc: "Producción fotográfica completa para marca de moda con estilo editorial.", results: "+120% engagement redes", color: "from-amber-500 to-gold" },
-  { title: "Video Institucional", category: "Audiovisual", desc: "Spot corporativo que captura la esencia y valores de una empresa tecnológica.", results: "2M reproducciones", color: "from-purple to-purple-light" },
-  { title: "Campaña 360", category: "Estrategia Digital", desc: "Estrategia multicanal para lanzamiento de producto con resultados récord.", results: "+320% leads generados", color: "from-gold to-purple" },
+  {
+    title: "Rebranding Corporativo",
+    category: "Branding",
+    description: "Renovación completa de identidad visual para empresa del sector salud.",
+    results: "Aumento del 40% en reconocimiento de marca",
+    icon: Palette,
+    gradient: "from-rose-400 to-pink-500",
+  },
+  {
+    title: "E-commerce Platform",
+    category: "Desarrollo web",
+    description: "Tienda online con experiencia de usuario optimizada para conversión.",
+    results: "35% de incremento en ventas online",
+    icon: Globe,
+    gradient: "from-amber-400 to-orange-500",
+  },
+  {
+    title: "App Financiera",
+    category: "UX/UI",
+    description: "Interfaz de usuario para aplicación de gestión financiera personal.",
+    results: "Calificación 4.8/5 en pruebas de usabilidad",
+    icon: Monitor,
+    gradient: "from-violet-400 to-purple-500",
+  },
+  {
+    title: "Catalogo Empresarial",
+    category: "Fotografía corporativa",
+    description: "Producción fotográfica completa para catálogo de productos.",
+    results: "50+ imágenes profesionales entregadas",
+    icon: Camera,
+    gradient: "from-sky-400 to-blue-500",
+  },
+  {
+    title: "Spot Publicitario",
+    category: "Producción audiovisual",
+    description: "Video corporativo para campaña de lanzamiento de producto.",
+    results: "2M de reproducciones en primera semana",
+    icon: Video,
+    gradient: "from-teal-400 to-emerald-500",
+  },
+  {
+    title: "Campaña Integral",
+    category: "Estrategias digitales",
+    description: "Estrategia 360° para posicionamiento de marca en mercado competitivo.",
+    results: "150% ROI en campaña de 3 meses",
+    icon: BarChart3,
+    gradient: "from-red-400 to-rose-500",
+  },
 ];
 
-const categories = ["Todos", "Branding", "Desarrollo Web", "UX/UI", "Fotografía", "Audiovisual", "Estrategia Digital"];
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.1 },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut" as const },
+  },
+};
 
 export default function Projects() {
-  const [active, setActive] = useState("Todos");
-  const filtered = active === "Todos" ? projects : projects.filter((p) => p.category === active);
-
   return (
-    <section id="proyectos" className="relative py-32 px-6 bg-dark overflow-hidden">
-      <div className="max-w-7xl mx-auto">
+    <section id="proyectos" className="py-20 sm:py-28 bg-white relative overflow-hidden">
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-amber-50 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2 pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-gold to-purple-light bg-clip-text text-transparent">
-              Proyectos Destacados
-            </span>
+          <span className="text-sm font-semibold tracking-widest uppercase text-primary">
+            Proyectos Destacados
+          </span>
+          <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight">
+            Nuestro <span className="gradient-text">portafolio</span> habla por sí solo
           </h2>
-          <p className="text-gray-400 text-lg">Transformando ideas en resultados</p>
         </motion.div>
 
-        <div className="flex flex-wrap gap-3 justify-center mb-12">
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setActive(cat)}
-              className={`px-5 py-2 rounded-full text-sm transition-all duration-300 ${
-                active === cat
-                  ? "bg-gradient-to-r from-gold to-purple-light text-white"
-                  : "bg-white/5 text-gray-400 hover:text-white hover:bg-white/10"
-              }`}
-            >
-              {cat}
-            </button>
-          ))}
-        </div>
-
-        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <AnimatePresence mode="popLayout">
-            {filtered.map((p, i) => (
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+        >
+          {projects.map((project) => {
+            const Icon = project.icon;
+            return (
               <motion.div
-                key={p.title}
-                layout
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.4 }}
-                className="group relative rounded-2xl overflow-hidden border border-white/5 bg-dark-3/50"
+                key={project.title}
+                variants={itemVariants}
+                className="group relative card-hover rounded-2xl overflow-hidden border border-gray-100 bg-white"
               >
-                <div className={`h-48 bg-gradient-to-br ${p.color} flex items-center justify-center`}>
-                  <span className="text-5xl opacity-30 font-bold">{p.category[0]}</span>
-                </div>
-                <div className="p-6">
-                  <span className="text-xs text-gold font-medium uppercase tracking-wider">{p.category}</span>
-                  <h3 className="text-xl font-semibold text-white mt-1 mb-2">{p.title}</h3>
-                  <p className="text-sm text-gray-400 mb-4">{p.desc}</p>
-                  <div className="flex items-center gap-2 text-sm text-gold-light">
-                    <span className="w-1.5 h-1.5 rounded-full bg-gold-light" />
-                    {p.results}
+                <div className={`h-48 bg-gradient-to-br ${project.gradient} flex items-center justify-center relative overflow-hidden`}>
+                  <Icon className="w-16 h-16 text-white/30" />
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
+                  <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <span className="inline-flex items-center gap-1 text-xs font-medium text-white bg-white/20 backdrop-blur-sm px-3 py-1.5 rounded-full">
+                      Ver más <ArrowUpRight className="w-3 h-3" />
+                    </span>
                   </div>
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-dark/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6 pointer-events-none">
-                  <span className="text-white font-medium">Ver proyecto →</span>
+
+                <div className="p-6">
+                  <span className="text-xs font-semibold tracking-wider uppercase text-primary">
+                    {project.category}
+                  </span>
+                  <h3 className="mt-1 text-lg font-bold text-gray-900 group-hover:text-primary transition-colors">
+                    {project.title}
+                  </h3>
+                  <p className="mt-2 text-sm text-gray-500 leading-relaxed">
+                    {project.description}
+                  </p>
+                  <div className="mt-4 pt-4 border-t border-gray-50">
+                    <span className="text-xs font-semibold text-gray-400 uppercase tracking-wider">Resultados</span>
+                    <p className="text-sm font-medium text-gray-700 mt-0.5">
+                      {project.results}
+                    </p>
+                  </div>
                 </div>
               </motion.div>
-            ))}
-          </AnimatePresence>
+            );
+          })}
         </motion.div>
       </div>
     </section>
