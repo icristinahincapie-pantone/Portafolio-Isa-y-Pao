@@ -21,7 +21,7 @@ export default function CTA() {
             Transformemos tu marca en una experiencia memorable.
           </span>
         </h2>
-        <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-10">
+        <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-10 font-descriptor">
           Diseñamos estrategias, experiencias digitales y contenido que generan resultados reales.
         </p>
 

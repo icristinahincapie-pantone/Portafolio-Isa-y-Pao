@@ -3,8 +3,8 @@
 @theme inline {
   --color-background: #ffffff;
   --color-foreground: #0a0a0a;
-  --color-primary: #e91e63;
-  --color-primary-dark: #c2185b;
+  --color-primary: #7c3aed;
+  --color-primary-dark: #5b21b6;
   --color-gold: #f5a623;
   --color-gold-dark: #d4891a;
   --color-purple: #6c3fa0;
@@ -44,12 +44,12 @@ body {
 }
 
 ::selection {
-  background: #e91e63;
+  background: #7c3aed;
   color: white;
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, #e91e63, #f5a623);
+  background: linear-gradient(135deg, #f5a623, #7c3aed);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -63,7 +63,7 @@ body {
 }
 
 .gradient-gold {
-  background: linear-gradient(135deg, #f5a623, #e91e63);
+  background: linear-gradient(135deg, #f5a623, #d4891a);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -82,4 +82,8 @@ body {
   background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+}
+
+.font-descriptor {
+  font-family: var(--font-elms-sans), system-ui, -apple-system, sans-serif;
 }

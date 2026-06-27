@@ -66,7 +66,7 @@ export default function CaseStudies() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="text-sm font-semibold tracking-widest uppercase text-primary">
+          <span className="text-sm font-semibold tracking-widest uppercase text-primary font-descriptor">
             Casos de Éxito
           </span>
           <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight">
@@ -89,18 +89,18 @@ export default function CaseStudies() {
             >
               <div className="mb-6">
                 <div className="flex items-center gap-2 mb-2">
-                  <span className="text-xs font-semibold tracking-widest uppercase text-gray-400">
-                    Problema
-                  </span>
+                    <span className="text-xs font-semibold tracking-widest uppercase text-gray-400 font-descriptor">
+                      Problema
+                    </span>
                 </div>
                 <p className="text-sm text-gray-700 font-medium">{c.problem}</p>
               </div>
 
               <div className="mb-6">
                 <div className="flex items-center gap-2 mb-2">
-                  <span className="text-xs font-semibold tracking-widest uppercase text-gray-400">
-                    Solución
-                  </span>
+                    <span className="text-xs font-semibold tracking-widest uppercase text-gray-400 font-descriptor">
+                      Solución
+                    </span>
                 </div>
                 <p className="text-sm text-gray-700 font-medium">{c.solution}</p>
               </div>
@@ -113,7 +113,7 @@ export default function CaseStudies() {
                       <div key={metric.label} className="text-center">
                         <Icon className="w-5 h-5 text-primary mx-auto mb-1" />
                         <p className="text-2xl font-bold gradient-text">{metric.value}</p>
-                        <p className="text-xs text-gray-400 mt-0.5">{metric.label}</p>
+                        <p className="text-xs text-gray-400 mt-0.5 font-descriptor">{metric.label}</p>
                       </div>
                     );
                   })}

@@ -47,7 +47,7 @@ export default function Navbar() {
             <li key={item.href}>
               <a
                 href={item.href}
-                className="text-sm font-medium text-gray-600 hover:text-primary transition-colors duration-200"
+                className="text-sm font-medium text-gray-600 hover:text-primary transition-colors duration-200 font-descriptor"
               >
                 {item.label}
               </a>
@@ -89,7 +89,7 @@ export default function Navbar() {
                   <a
                     href={item.href}
                     onClick={() => setMobileOpen(false)}
-                    className="block py-2 text-sm font-medium text-gray-600 hover:text-primary"
+                    className="block py-2 text-sm font-medium text-gray-600 hover:text-primary font-descriptor"
                   >
                     {item.label}
                   </a>

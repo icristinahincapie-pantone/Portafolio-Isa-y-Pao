@@ -7,13 +7,13 @@ export default function Hero() {
   return (
     <section
       id="inicio"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-rose-50 via-white to-amber-50"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-amber-50 via-white to-violet-50"
     >
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div
           animate={{ rotate: 360 }}
           transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
-          className="absolute -top-1/2 -right-1/4 w-[600px] h-[600px] rounded-full border-2 border-rose-200/30"
+          className="absolute -top-1/2 -right-1/4 w-[600px] h-[600px] rounded-full border-2 border-amber-200/30"
         />
         <motion.div
           animate={{ rotate: -360 }}
@@ -23,7 +23,7 @@ export default function Hero() {
         <motion.div
           animate={{ y: [-20, 20, -20] }}
           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-1/4 right-1/4 w-32 h-32 bg-rose-200/10 rounded-full blur-3xl"
+          className="absolute top-1/4 right-1/4 w-32 h-32 bg-amber-200/10 rounded-full blur-3xl"
         />
         <motion.div
           animate={{ y: [20, -20, 20] }}
@@ -38,7 +38,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          <span className="inline-block px-4 py-1.5 mb-6 text-xs font-semibold tracking-widest uppercase text-primary bg-primary/5 rounded-full">
+          <span className="inline-block px-4 py-1.5 mb-6 text-xs font-semibold tracking-widest uppercase text-primary bg-primary/5 rounded-full font-descriptor">
             Agencia Creativa
           </span>
         </motion.div>
@@ -58,7 +58,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-          className="mt-6 text-lg sm:text-xl text-gray-500 max-w-3xl mx-auto leading-relaxed"
+          className="mt-6 text-lg sm:text-xl text-gray-500 max-w-3xl mx-auto leading-relaxed font-descriptor"
         >
           Agencia especializada en branding, marketing digital, diseño UX/UI,
           desarrollo web, fotografía y producción audiovisual para empresas que
@@ -73,7 +73,7 @@ export default function Hero() {
         >
           <a
             href="#proyectos"
-            className="group inline-flex items-center gap-2 px-8 py-4 bg-primary text-white font-semibold rounded-full hover:bg-primary-dark transition-all duration-300 shadow-lg hover:shadow-xl"
+            className="group inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-amber-500 to-violet-600 text-white font-semibold rounded-full hover:from-amber-600 hover:to-violet-700 transition-all duration-300 shadow-lg hover:shadow-xl"
           >
             Ver portafolio
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

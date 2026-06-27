@@ -69,7 +69,7 @@ function TeamMemberCard({ member, index }: { member: (typeof teamMembers)[0]; in
     >
       <div className="grid md:grid-cols-2 gap-0">
         <div className="p-8 sm:p-10 lg:p-12 flex flex-col justify-center order-2 md:order-1">
-          <span className={`inline-flex items-center gap-2 text-sm font-semibold ${member.palette.text} mb-4`}>
+          <span className={`inline-flex items-center gap-2 text-sm font-semibold ${member.palette.text} mb-4 font-descriptor`}>
             <Award className="w-4 h-4" />
             {member.experience}
           </span>
@@ -82,7 +82,7 @@ function TeamMemberCard({ member, index }: { member: (typeof teamMembers)[0]; in
             {member.role}
           </p>
 
-          <p className="text-sm text-gray-500 mb-4">
+          <p className="text-sm text-gray-500 mb-4 font-descriptor">
             {member.education} · {member.specialty}
           </p>
 
@@ -93,7 +93,7 @@ function TeamMemberCard({ member, index }: { member: (typeof teamMembers)[0]; in
             </span>
           </div>
 
-          <h4 className="text-sm font-semibold text-gray-700 mb-3">Experiencia en:</h4>
+          <h4 className="text-sm font-semibold text-gray-700 mb-3 font-descriptor">Experiencia en:</h4>
           <ul className="grid grid-cols-2 gap-2">
             {member.skills.map((skill) => (
               <li key={skill} className="flex items-center gap-2 text-sm text-gray-600">
@@ -143,7 +143,7 @@ export default function Team() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="text-sm font-semibold tracking-widest uppercase text-primary">
+          <span className="text-sm font-semibold tracking-widest uppercase text-primary font-descriptor">
             Nuestro Equipo
           </span>
           <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight">

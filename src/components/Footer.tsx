@@ -28,11 +28,11 @@ export default function Footer() {
             transition={{ duration: 0.6 }}
           >
             <h3 className="text-2xl font-bold text-white mb-4">
-              <span className="bg-gradient-to-r from-rose-400 to-amber-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-amber-400 to-violet-500 bg-clip-text text-transparent">
                 Isa & Pao
               </span>
             </h3>
-            <p className="text-sm text-gray-400 leading-relaxed max-w-xs">
+            <p className="text-sm text-gray-400 leading-relaxed max-w-xs font-descriptor">
               Agencia creativa especializada en branding, marketing digital y diseño de experiencias.
             </p>
 
@@ -59,7 +59,7 @@ export default function Footer() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            <h4 className="text-sm font-semibold tracking-widest uppercase text-white mb-6">
+            <h4 className="text-sm font-semibold tracking-widest uppercase text-white mb-6 font-descriptor">
               Enlaces rápidos
             </h4>
             <ul className="space-y-3">
@@ -89,7 +89,7 @@ export default function Footer() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <h4 className="text-sm font-semibold tracking-widest uppercase text-white mb-6">
+            <h4 className="text-sm font-semibold tracking-widest uppercase text-white mb-6 font-descriptor">
               Contacto
             </h4>
             <ul className="space-y-4">

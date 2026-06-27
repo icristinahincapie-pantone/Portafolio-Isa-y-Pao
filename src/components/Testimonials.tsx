@@ -60,8 +60,8 @@ export default function Testimonials() {
   };
 
   return (
-    <section className="py-20 sm:py-28 bg-gradient-to-br from-gray-50 to-rose-50 relative overflow-hidden">
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-rose-100/30 rounded-full blur-3xl pointer-events-none" />
+    <section className="py-20 sm:py-28 bg-gradient-to-br from-gray-50 to-amber-50 relative overflow-hidden">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-amber-100/30 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
@@ -71,7 +71,7 @@ export default function Testimonials() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <span className="text-sm font-semibold tracking-widest uppercase text-primary">
+          <span className="text-sm font-semibold tracking-widest uppercase text-primary font-descriptor">
             Testimonios
           </span>
           <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight">
@@ -98,7 +98,7 @@ export default function Testimonials() {
                   ))}
                 </div>
 
-                <p className="text-lg sm:text-xl text-gray-600 leading-relaxed italic mb-8">
+                <p className="text-lg sm:text-xl text-gray-600 leading-relaxed italic mb-8 font-descriptor">
                   &ldquo;{testimonials[current].text}&rdquo;
                 </p>
 

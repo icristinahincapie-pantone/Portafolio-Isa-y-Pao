@@ -84,7 +84,7 @@ export default function Projects() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="text-sm font-semibold tracking-widest uppercase text-primary">
+          <span className="text-sm font-semibold tracking-widest uppercase text-primary font-descriptor">
             Proyectos Destacados
           </span>
           <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight">
@@ -121,7 +121,7 @@ export default function Projects() {
                 </div>
 
                 <div className="p-6">
-                  <span className="text-xs font-semibold tracking-wider uppercase text-primary">
+                  <span className="text-xs font-semibold tracking-wider uppercase text-primary font-descriptor">
                     {project.category}
                   </span>
                   <h3 className="mt-1 text-lg font-bold text-gray-900 group-hover:text-primary transition-colors">

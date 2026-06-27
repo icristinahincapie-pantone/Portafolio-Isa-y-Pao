@@ -32,7 +32,7 @@ const itemVariants = {
 export default function Methodology() {
   return (
     <section id="metodologia" className="py-20 sm:py-28 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
-      <div className="absolute top-0 left-0 w-[400px] h-[400px] bg-rose-50 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
+      <div className="absolute top-0 left-0 w-[400px] h-[400px] bg-violet-50 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
@@ -42,13 +42,13 @@ export default function Methodology() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="text-sm font-semibold tracking-widest uppercase text-primary">
+          <span className="text-sm font-semibold tracking-widest uppercase text-primary font-descriptor">
             Metodología
           </span>
           <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight">
             Nuestro <span className="gradient-text">proceso</span> de trabajo
           </h2>
-          <p className="mt-4 text-gray-500 max-w-2xl mx-auto">
+          <p className="mt-4 text-gray-500 max-w-2xl mx-auto font-descriptor">
             Seis pasos para transformar tu visión en resultados tangibles.
           </p>
         </motion.div>
@@ -85,7 +85,7 @@ export default function Methodology() {
                         </div>
                         <h3 className="text-lg font-bold text-gray-900">{s.title}</h3>
                       </div>
-                      <p className={`text-sm text-gray-500 ${isLeft ? "lg:text-right" : ""}`}>
+                      <p className={`text-sm text-gray-500 font-descriptor ${isLeft ? "lg:text-right" : ""}`}>
                         {s.description}
                       </p>
                     </div>

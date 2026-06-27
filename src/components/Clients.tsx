@@ -14,7 +14,7 @@ export default function Clients() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="text-sm font-semibold tracking-widest uppercase text-primary">
+          <span className="text-sm font-semibold tracking-widest uppercase text-primary font-descriptor">
             Clientes
           </span>
           <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight">
@@ -29,7 +29,7 @@ export default function Clients() {
           transition={{ duration: 0.6, delay: 0.2 }}
         >
           <div className="mb-8 text-center">
-            <span className="block text-lg font-medium text-muted-foreground">
+            <span className="block text-lg font-medium text-muted-foreground font-descriptor">
               Ya trabajamos con
             </span>
             <span className="font-bold text-2xl text-primary tracking-tight md:text-3xl">

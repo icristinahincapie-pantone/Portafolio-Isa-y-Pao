@@ -51,7 +51,7 @@ const itemVariants = {
 export default function Services() {
   return (
     <section id="servicios" className="py-20 sm:py-28 bg-white relative overflow-hidden">
-      <div className="absolute top-0 right-0 w-96 h-96 bg-rose-50 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
+      <div className="absolute top-0 right-0 w-96 h-96 bg-amber-50 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
@@ -61,13 +61,13 @@ export default function Services() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="text-sm font-semibold tracking-widest uppercase text-primary">
+          <span className="text-sm font-semibold tracking-widest uppercase text-primary font-descriptor">
             Nuestros Servicios
           </span>
           <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight">
             Soluciones <span className="gradient-text">integrales</span> para tu marca
           </h2>
-          <p className="mt-4 text-gray-500 max-w-2xl mx-auto text-lg">
+          <p className="mt-4 text-gray-500 max-w-2xl mx-auto text-lg font-descriptor">
             De la estrategia a la ejecución, cubrimos cada aspecto de tu presencia digital.
           </p>
         </motion.div>
@@ -85,7 +85,7 @@ export default function Services() {
               <motion.div
                 key={service.title}
                 variants={itemVariants}
-                className="group card-hover p-6 rounded-2xl border border-gray-100 bg-white hover:border-primary/20 hover:bg-gradient-to-br hover:from-rose-50 hover:to-white"
+                className="group card-hover p-6 rounded-2xl border border-gray-100 bg-white hover:border-primary/20 hover:bg-gradient-to-br hover:from-amber-50 hover:to-white"
               >
                 <div className="w-12 h-12 rounded-xl bg-primary/5 flex items-center justify-center mb-4 group-hover:bg-primary/10 transition-colors">
                   <Icon className="w-6 h-6 text-primary" />
@@ -93,7 +93,7 @@ export default function Services() {
                 <h3 className="text-base font-semibold text-gray-900 mb-1">
                   {service.title}
                 </h3>
-                <p className="text-sm text-gray-400">{service.description}</p>
+                <p className="text-sm text-gray-400 font-descriptor">{service.description}</p>
               </motion.div>
             );
           })}
