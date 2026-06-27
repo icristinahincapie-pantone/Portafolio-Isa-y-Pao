@@ -19,7 +19,7 @@ const defaultLogos: Logo[] = [
     alt: "Nestlé",
   },
   {
-    src: "https://upload.wikimedia.org/wikipedia/commons/8/8c/L%27Or%C3%A9al_logo.svg",
+    src: "https://static.cdnlogo.com/logos/l/88/loreal.svg",
     alt: "L'Oréal",
   },
   {
@@ -27,7 +27,7 @@ const defaultLogos: Logo[] = [
     alt: "Coca-Cola",
   },
   {
-    src: "https://upload.wikimedia.org/wikipedia/commons/2/26/Spotify_2024_logo.svg",
+    src: "https://static.cdnlogo.com/logos/s/68/spotify.svg",
     alt: "Spotify",
   },
 ];
