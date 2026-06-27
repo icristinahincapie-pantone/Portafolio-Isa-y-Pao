@@ -66,7 +66,7 @@ function BrandRow({ reverse, className }: BrandScrollerProps) {
             >
               <img
                 alt={brand.alt}
-                className="pointer-events-none h-8 select-none dark:brightness-0 dark:invert"
+                className="pointer-events-none h-8 select-none grayscale brightness-[0.6] dark:brightness-[0.4] transition-all duration-300 hover:grayscale-0 hover:brightness-100"
                 src={brand.src}
               />
             </div>
