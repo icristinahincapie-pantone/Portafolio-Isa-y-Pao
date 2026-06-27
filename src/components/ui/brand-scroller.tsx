@@ -1,7 +1,5 @@
 "use client";
 
-import { cn } from "@/lib/utils";
-
 type Brand = {
   src: string;
   alt: string;
@@ -38,50 +36,18 @@ const brands: Brand[] = [
   },
 ];
 
-type BrandScrollerProps = {
-  reverse?: boolean;
-  className?: string;
-};
-
-function BrandRow({ reverse, className }: BrandScrollerProps) {
-  return (
-    <div
-      className={cn(
-        "group flex overflow-hidden py-2 [--gap:2rem] [gap:var(--gap)] flex-row max-w-full [--duration:40s] [mask-image:linear-gradient(to_right,_rgba(0,_0,_0,_0),rgba(0,_0,_0,_1)_10%,rgba(0,_0,_0,_1)_90%,rgba(0,_0,_0,_0))]",
-        className
-      )}
-    >
-      {Array.from({ length: 3 }).map((_, i) => (
-        <div
-          key={i}
-          className={cn(
-            "flex shrink-0 justify-around [gap:var(--gap)] flex-row",
-            reverse ? "animate-marquee-reverse" : "animate-marquee"
-          )}
-        >
-          {brands.map((brand) => (
-            <div
-              key={brand.alt}
-              className="flex items-center justify-center w-36"
-            >
-              <img
-                alt={brand.alt}
-                className="pointer-events-none h-8 select-none grayscale brightness-[0.6] dark:brightness-[0.4] transition-all duration-300 hover:grayscale-0 hover:brightness-100"
-                src={brand.src}
-              />
-            </div>
-          ))}
-        </div>
-      ))}
-    </div>
-  );
-}
-
 export function BrandScroller() {
   return (
-    <div className="flex flex-col gap-4">
-      <BrandRow />
-      <BrandRow reverse />
+    <div className="flex flex-wrap items-center justify-center gap-8">
+      {brands.map((brand) => (
+        <div key={brand.alt} className="flex items-center justify-center w-36">
+          <img
+            alt={brand.alt}
+            className="pointer-events-none h-8 select-none grayscale brightness-[0.6] dark:brightness-[0.4] transition-all duration-300 hover:grayscale-0 hover:brightness-100"
+            src={brand.src}
+          />
+        </div>
+      ))}
     </div>
   );
 }
