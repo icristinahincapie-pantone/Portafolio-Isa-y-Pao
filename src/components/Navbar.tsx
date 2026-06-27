@@ -39,7 +39,7 @@ export default function Navbar() {
           href="#inicio"
           className="text-xl sm:text-2xl font-bold tracking-tight"
         >
-          <span className="gradient-text">Isa & Pao</span>
+          <span className="text-violet-600">Isa</span><span className="text-gray-800"> & </span><span className="text-amber-500">Pao</span>
         </a>
 
         <ul className="hidden md:flex items-center gap-8">
