@@ -9,14 +9,16 @@ const projects = [
     category: "Branding",
     description: "Renovación completa de identidad visual para empresa del sector salud.",
     results: "Aumento del 40% en reconocimiento de marca",
-    image: "https://images.unsplash.com/photo-1626785774573-4b799315345d?w=600&q=80",
+    image: "https://mir-s3-cdn-cf.behance.net/projects/max_808_webp/e5e419245685623.Y3JvcCwyNTgzLDIwMjAsMCw2.jpg",
+    link: "https://www.behance.net/search/projects/branding%20brand%20identity?tracking_source=typeahead_search_suggestion",
   },
   {
     title: "E-commerce Platform",
     category: "Desarrollo web",
     description: "Tienda online con experiencia de usuario optimizada para conversión.",
     results: "35% de incremento en ventas online",
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&q=80",
+    image: "https://mir-s3-cdn-cf.behance.net/projects/max_808_webp/9d9a1e136461391.Y3JvcCwxNjE2LDEyNjQsMCww.jpg",
+    link: "https://www.behance.net/search/projects/ecommerce%20web%20design?tracking_source=typeahead_search_suggestion",
   },
   {
     title: "App Financiera",
