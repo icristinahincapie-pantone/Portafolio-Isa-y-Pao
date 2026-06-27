@@ -11,14 +11,14 @@ const socialLinks = [
 ];
 
 const contactInfo = [
-  { icon: Mail, text: "hola@isaypao.com", href: "mailto:hola@isaypao.com" },
-  { icon: Phone, text: "+57 300 123 4567", href: "tel:+573001234567" },
-  { icon: MapPin, text: "Manizales, Colombia", href: "#" },
+  { icon: Mail, text: "isaypao@gmail.com", href: "mailto:isaypao@gmail.com" },
+  { icon: Phone, text: "+57 3137144726", href: "tel:+573137144726" },
+  { icon: MapPin, text: "Armenia, Quindío", href: "#" },
 ];
 
 export default function Footer() {
   return (
-    <footer id="contacto" className="bg-gray-900 text-gray-300">
+    <footer id="contacto" className="bg-gray-50 text-gray-600">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           <motion.div
@@ -27,12 +27,12 @@ export default function Footer() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h3 className="text-2xl font-bold text-white mb-4">
-              <span className="bg-gradient-to-r from-amber-400 to-violet-500 bg-clip-text text-transparent">
+            <h3 className="text-2xl font-bold mb-4">
+              <span className="bg-gradient-to-r from-amber-500 to-violet-600 bg-clip-text text-transparent">
                 Isa & Pao
               </span>
             </h3>
-            <p className="text-sm text-gray-400 leading-relaxed max-w-xs font-descriptor">
+            <p className="text-sm text-gray-500 leading-relaxed max-w-xs font-descriptor">
               Agencia creativa especializada en branding, marketing digital y diseño de experiencias.
             </p>
 
@@ -43,7 +43,7 @@ export default function Footer() {
                   <a
                     key={social.label}
                     href={social.href}
-                    className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors duration-200"
+                    className="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center hover:bg-primary hover:text-white transition-colors duration-200"
                     aria-label={social.label}
                   >
                     <Icon className="w-4 h-4" />
@@ -59,7 +59,7 @@ export default function Footer() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            <h4 className="text-sm font-semibold tracking-widest uppercase text-white mb-6 font-descriptor">
+            <h4 className="text-sm font-semibold tracking-widest uppercase text-gray-900 mb-6 font-descriptor">
               Enlaces rápidos
             </h4>
             <ul className="space-y-3">
@@ -74,7 +74,7 @@ export default function Footer() {
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="text-sm text-gray-400 hover:text-white transition-colors duration-200"
+                    className="text-sm text-gray-500 hover:text-primary transition-colors duration-200"
                   >
                     {link.label}
                   </a>
@@ -89,7 +89,7 @@ export default function Footer() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <h4 className="text-sm font-semibold tracking-widest uppercase text-white mb-6 font-descriptor">
+            <h4 className="text-sm font-semibold tracking-widest uppercase text-gray-900 mb-6 font-descriptor">
               Contacto
             </h4>
             <ul className="space-y-4">
@@ -99,7 +99,7 @@ export default function Footer() {
                   <li key={item.text}>
                     <a
                       href={item.href}
-                      className="flex items-center gap-3 text-sm text-gray-400 hover:text-white transition-colors duration-200"
+                      className="flex items-center gap-3 text-sm text-gray-500 hover:text-primary transition-colors duration-200"
                     >
                       <Icon className="w-4 h-4 text-primary flex-shrink-0" />
                       {item.text}
@@ -111,15 +111,15 @@ export default function Footer() {
           </motion.div>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-gray-800 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-gray-500">
+        <div className="mt-12 pt-8 border-t border-gray-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-xs text-gray-400">
             &copy; {new Date().getFullYear()} Isa & Pao. Todos los derechos reservados.
           </p>
-          <div className="flex gap-6 text-xs text-gray-500">
-            <a href="#" className="hover:text-white transition-colors">
+          <div className="flex gap-6 text-xs text-gray-400">
+            <a href="#" className="hover:text-primary transition-colors">
               Política de privacidad
             </a>
-            <a href="#" className="hover:text-white transition-colors">
+            <a href="#" className="hover:text-primary transition-colors">
               Términos y condiciones
             </a>
           </div>
