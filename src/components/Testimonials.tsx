@@ -11,6 +11,7 @@ const testimonials = [
     role: "CEO",
     text: "Trabajar con Isa & Pao transformó completamente nuestra presencia digital. Su enfoque estratégico y creativo superó todas nuestras expectativas. Los resultados hablan por sí solos.",
     rating: 5,
+    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&q=80",
   },
   {
     name: "Ana María Gómez",
@@ -18,6 +19,7 @@ const testimonials = [
     role: "Directora de Marketing",
     text: "Profesionalismo y creatividad excepcionales. Lograron capturar la esencia de nuestra marca y traducirla en una experiencia digital memorable.",
     rating: 5,
+    avatar: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=150&q=80",
   },
   {
     name: "Juan Pablo Restrepo",
@@ -25,6 +27,7 @@ const testimonials = [
     role: "Brand Manager",
     text: "La mejor inversión que hemos hecho en marketing digital. El equipo entiende realmente las necesidades del negocio y entrega resultados medibles.",
     rating: 5,
+    avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&q=80",
   },
   {
     name: "Laura Jiménez",
@@ -32,6 +35,7 @@ const testimonials = [
     role: "Head of Digital",
     text: "Un enfoque fresco y moderno que revitalizó nuestra estrategia digital. Altamente recomendadas para proyectos de transformación digital.",
     rating: 5,
+    avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&q=80",
   },
 ];
 
@@ -98,10 +102,13 @@ export default function Testimonials() {
                   &ldquo;{testimonials[current].text}&rdquo;
                 </p>
 
-                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-purple-400 flex items-center justify-center mx-auto mb-3">
-                  <span className="text-white font-bold text-lg">
-                    {testimonials[current].name.split(" ").map((n) => n[0]).join("")}
-                  </span>
+                <div className="w-16 h-16 rounded-full overflow-hidden mx-auto mb-3 ring-2 ring-primary/20">
+                  <img
+                    src={testimonials[current].avatar}
+                    alt={testimonials[current].name}
+                    loading="lazy"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
 
                 <p className="font-semibold text-gray-900">{testimonials[current].name}</p>

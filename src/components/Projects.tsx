@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowUpRight, Palette, Globe, Monitor, Camera, Video, BarChart3 } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
 const projects = [
   {
@@ -9,48 +9,46 @@ const projects = [
     category: "Branding",
     description: "Renovación completa de identidad visual para empresa del sector salud.",
     results: "Aumento del 40% en reconocimiento de marca",
-    icon: Palette,
-    gradient: "from-rose-400 to-pink-500",
+    image: "https://images.unsplash.com/photo-1626785774573-4b799315345d?w=600&q=80",
   },
   {
     title: "E-commerce Platform",
     category: "Desarrollo web",
     description: "Tienda online con experiencia de usuario optimizada para conversión.",
     results: "35% de incremento en ventas online",
-    icon: Globe,
-    gradient: "from-amber-400 to-orange-500",
+    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&q=80",
   },
   {
     title: "App Financiera",
     category: "UX/UI",
     description: "Interfaz de usuario para aplicación de gestión financiera personal.",
     results: "Calificación 4.8/5 en pruebas de usabilidad",
-    icon: Monitor,
-    gradient: "from-violet-400 to-purple-500",
+    image: "https://mir-s3-cdn-cf.behance.net/projects/max_808/38b2d7251133859.Y3JvcCwxMzIzLDEwMzUsNTg5LDIwMw.png",
+    link: "https://www.behance.net/galleries/ui-ux",
   },
   {
     title: "Catalogo Empresarial",
     category: "Fotografía corporativa",
     description: "Producción fotográfica completa para catálogo de productos.",
     results: "50+ imágenes profesionales entregadas",
-    icon: Camera,
-    gradient: "from-sky-400 to-blue-500",
+    image: "https://mir-s3-cdn-cf.behance.net/projects/max_808/47ba16250552591.Y3JvcCwxMjc0LDk5Niw2MywzODQ.jpg",
+    link: "https://www.behance.net/galleries/photography",
   },
   {
     title: "Spot Publicitario",
     category: "Producción audiovisual",
     description: "Video corporativo para campaña de lanzamiento de producto.",
     results: "2M de reproducciones en primera semana",
-    icon: Video,
-    gradient: "from-teal-400 to-emerald-500",
+    image: "https://mir-s3-cdn-cf.behance.net/projects/max_808/5b5f4f173358407.Y3JvcCwxNDAwLDEwOTUsMCwzMjU.jpg",
+    link: "https://www.behance.net/galleries/premiere-pro",
   },
   {
     title: "Campaña Integral",
     category: "Estrategias digitales",
     description: "Estrategia 360° para posicionamiento de marca en mercado competitivo.",
     results: "150% ROI en campaña de 3 meses",
-    icon: BarChart3,
-    gradient: "from-red-400 to-rose-500",
+    image: "https://mir-s3-cdn-cf.behance.net/projects/max_808/2a5f4d250628359.Y3JvcCwxMjEyLDk0OCwwLDA.jpg",
+    link: "https://www.behance.net/galleries/advertising",
   },
 ];
 
@@ -100,16 +98,19 @@ export default function Projects() {
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
           {projects.map((project) => {
-            const Icon = project.icon;
-            return (
-              <motion.div
-                key={project.title}
-                variants={itemVariants}
-                className="group relative card-hover rounded-2xl overflow-hidden border border-gray-100 bg-white"
-              >
-                <div className={`h-48 bg-gradient-to-br ${project.gradient} flex items-center justify-center relative overflow-hidden`}>
-                  <Icon className="w-16 h-16 text-white/30" />
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
+              const Card = (
+                <motion.div
+                  variants={itemVariants}
+                  className="group relative card-hover rounded-2xl overflow-hidden border border-gray-100 bg-white"
+                >
+                <div className="h-48 relative overflow-hidden">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    loading="lazy"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
                   <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <span className="inline-flex items-center gap-1 text-xs font-medium text-white bg-white/20 backdrop-blur-sm px-3 py-1.5 rounded-full">
                       Ver más <ArrowUpRight className="w-3 h-3" />
@@ -135,7 +136,14 @@ export default function Projects() {
                   </div>
                 </div>
               </motion.div>
-            );
+              );
+              return project.link ? (
+                <a key={project.title} href={project.link} target="_blank" rel="noopener noreferrer">
+                  {Card}
+                </a>
+              ) : (
+                <div key={project.title}>{Card}</div>
+              );
           })}
         </motion.div>
       </div>

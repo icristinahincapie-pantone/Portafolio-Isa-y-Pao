@@ -5,7 +5,7 @@ import { Palette, Target, Star, Award } from "lucide-react";
 
 const teamMembers = [
   {
-    name: "Diseñadora Visual",
+    name: "Paola Forero",
     role: "Diseñadora Visual",
     experience: "5 años de experiencia",
     education: "Institución Universitaria EAM",
@@ -27,9 +27,10 @@ const teamMembers = [
       icon: "text-amber-500",
     },
     icon: Palette,
+    photo: "/images/pao.JPG",
   },
   {
-    name: "Publicista",
+    name: "Isabel Cristina Hincapié",
     role: "Publicista",
     experience: "20 años de experiencia",
     education: "Universidad Católica de Manizales",
@@ -51,6 +52,7 @@ const teamMembers = [
       icon: "text-violet-600",
     },
     icon: Target,
+    photo: "/images/ISa.PNG",
   },
 ];
 
@@ -104,12 +106,17 @@ function TeamMemberCard({ member, index }: { member: (typeof teamMembers)[0]; in
 
         <div className="relative min-h-[300px] sm:min-h-[400px] bg-gradient-to-br from-gray-100 to-gray-50 order-1 md:order-2 overflow-hidden">
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className={`w-48 h-48 sm:w-64 sm:h-64 rounded-full ${member.palette.accent} opacity-10 absolute top-10 -right-10`} />
-            <div className={`w-32 h-32 rounded-full ${member.palette.accent} opacity-10 absolute bottom-10 -left-5`} />
-
             <div className="relative">
-              <div className={`w-40 h-40 sm:w-52 sm:h-52 rounded-full ${member.palette.accent} flex items-center justify-center shadow-2xl`}>
-                <Icon className="w-16 h-16 sm:w-20 sm:h-20 text-white" />
+              <div className={`w-40 h-40 sm:w-52 sm:h-52 rounded-full ${member.palette.accent} flex items-center justify-center shadow-2xl overflow-hidden`}>
+                {member.photo ? (
+                  <img
+                    src={member.photo}
+                    alt={member.name}
+                    className="w-full h-full object-cover grayscale"
+                  />
+                ) : (
+                  <Icon className="w-16 h-16 sm:w-20 sm:h-20 text-white" />
+                )}
               </div>
 
               <motion.div
