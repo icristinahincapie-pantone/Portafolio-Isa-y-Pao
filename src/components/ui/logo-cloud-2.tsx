@@ -1,43 +1,63 @@
 import { cn } from "@/lib/utils";
 
-const brands = [
-  { name: "Éxito", description: "Cadena de retail" },
-  { name: "Nestlé", description: "Alimentos y bebidas" },
-  { name: "Coca-Cola", description: "Bebidas" },
-  { name: "L'Oréal", description: "Cosméticos y belleza" },
-  { name: "Tosh", description: "Snacks saludables" },
-  { name: "Tennis", description: "Snacks" },
+type Logo = {
+  src: string;
+  alt: string;
+};
+
+type LogoCloudProps = React.ComponentProps<"div"> & {
+  logos?: Logo[];
+};
+
+const defaultLogos: Logo[] = [
+  {
+    src: "https://upload.wikimedia.org/wikipedia/commons/1/15/Almacenes_exito_logo.svg",
+    alt: "Éxito",
+  },
+  {
+    src: "https://upload.wikimedia.org/wikipedia/commons/b/bf/Nestl%C3%A9_textlogo.svg",
+    alt: "Nestlé",
+  },
+  {
+    src: "https://upload.wikimedia.org/wikipedia/commons/8/8c/L%27Or%C3%A9al_logo.svg",
+    alt: "L'Oréal",
+  },
+  {
+    src: "https://upload.wikimedia.org/wikipedia/commons/5/5e/The_Coca-Cola_Company_logo.svg",
+    alt: "Coca-Cola",
+  },
+  {
+    src: "https://upload.wikimedia.org/wikipedia/commons/2/26/Spotify_2024_logo.svg",
+    alt: "Spotify",
+  },
 ];
 
-type LogoCloudProps = React.ComponentProps<"div">;
-
-export function LogoCloud({ className, ...props }: LogoCloudProps) {
+export function LogoCloud({ className, logos = defaultLogos, ...props }: LogoCloudProps) {
   return (
-    <div
-      className={cn(
-        "relative grid grid-cols-2 border md:grid-cols-3 lg:grid-cols-6",
-        className
-      )}
-      {...props}
-    >
+    <div className={cn("relative", className)} {...props}>
       <div className="-translate-x-1/2 -top-px pointer-events-none absolute left-1/2 w-screen border-t" />
 
-      {brands.map((brand, idx) => (
-        <div
-          key={brand.name}
-          className={cn(
-            "flex flex-col items-center justify-center gap-2 border-r border-b bg-background px-4 py-10 md:p-8 transition-colors hover:bg-secondary/50",
-            idx % 2 !== 0 && "border-r-0 md:border-r",
-            idx >= 4 && "md:border-b-0",
-            idx >= 2 && "lg:border-b-0"
-          )}
-        >
-          <span className="text-xl font-bold tracking-tight text-gray-400 md:text-2xl">
-            {brand.name}
-          </span>
-          <span className="text-xs text-gray-300">{brand.description}</span>
-        </div>
-      ))}
+      <div className="grid grid-cols-2 border-x md:grid-cols-3 lg:grid-cols-5">
+        {logos.map((logo, idx) => (
+          <div
+            key={logo.alt}
+            className={cn(
+              "flex items-center justify-center border-b bg-background px-4 py-10 md:p-8",
+              (idx + 1) % 2 !== 0 && "border-r",
+              (idx + 1) % 2 === 0 && "md:border-r",
+              (idx + 1) % 3 === 0 && "md:border-r-0",
+              (idx + 1) % 3 === 0 && "lg:border-r",
+              idx === logos.length - 1 && "border-r-0"
+            )}
+          >
+            <img
+              alt={logo.alt}
+              className="pointer-events-none h-7 select-none dark:brightness-0 dark:invert"
+              src={logo.src}
+            />
+          </div>
+        ))}
+      </div>
 
       <div className="-translate-x-1/2 -bottom-px pointer-events-none absolute left-1/2 w-screen border-b" />
     </div>

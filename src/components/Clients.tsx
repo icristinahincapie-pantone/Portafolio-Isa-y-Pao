@@ -28,10 +28,20 @@ export default function Clients() {
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          <h3 className="text-sm font-semibold tracking-widest uppercase text-muted-foreground mb-8 text-center">
-            Empresas que colaboran con nosotros
-          </h3>
+          <div className="mb-8 text-center">
+            <span className="block text-lg font-medium text-muted-foreground">
+              Ya trabajamos con
+            </span>
+            <span className="font-bold text-2xl text-primary tracking-tight md:text-3xl">
+              Grandes Marcas
+            </span>
+          </div>
+
+          <div className="mx-auto mb-6 h-px max-w-sm bg-border [mask-image:linear-gradient(to_right,transparent,black,transparent)]" />
+
           <LogoCloud />
+
+          <div className="mt-6 h-px bg-border [mask-image:linear-gradient(to_right,transparent,black,transparent)]" />
         </motion.div>
       </div>
     </section>
