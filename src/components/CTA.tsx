@@ -6,7 +6,7 @@ import { Calendar, ArrowRight } from "lucide-react";
 export default function CTA() {
   return (
     <section className="relative py-32 px-6 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-dark-3 via-dark to-dark" />
+      <div className="absolute inset-0 bg-gradient-to-br from-amber-800 via-purple-900 to-amber-950" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(212,160,23,0.05)_0%,_transparent_60%)]" />
 
       <motion.div
@@ -21,7 +21,7 @@ export default function CTA() {
             Transformemos tu marca en una experiencia memorable.
           </span>
         </h2>
-        <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-10 font-descriptor">
+        <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-10">
           Diseñamos estrategias, experiencias digitales y contenido que generan resultados reales.
         </p>
 
