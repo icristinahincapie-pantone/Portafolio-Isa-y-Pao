@@ -109,11 +109,14 @@ function TeamMemberCard({ member, index }: { member: (typeof teamMembers)[0]; in
             <div className="relative">
               <div className={`w-40 h-40 sm:w-52 sm:h-52 rounded-full ${member.palette.accent} flex items-center justify-center shadow-2xl overflow-hidden`}>
                 {member.photo ? (
-                  <img
-                    src={member.photo}
-                    alt={member.name}
-                    className="w-full h-full object-cover grayscale"
-                  />
+                  <div className="relative w-full h-full">
+                    <img
+                      src={member.photo}
+                      alt={member.name}
+                      className="w-full h-full object-cover"
+                    />
+                    <div className={`absolute inset-0 ${member.palette.accent} mix-blend-multiply opacity-60`} />
+                  </div>
                 ) : (
                   <Icon className="w-16 h-16 sm:w-20 sm:h-20 text-white" />
                 )}
