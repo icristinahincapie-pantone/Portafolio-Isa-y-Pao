@@ -1,13 +1,65 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>portafolio-isa-y-pao</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Isa & Pao - Portafolio</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">Isa & Pao</div>
+      <ul class="nav-links">
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#proyectos">Proyectos</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="inicio" class="hero">
+      <div class="hero-content">
+        <h1>Isa y Pao</h1>
+        <p>Creatividad y diseño web</p>
+        <a href="#proyectos" class="btn">Ver proyectos</a>
+      </div>
+    </section>
+
+    <section id="proyectos" class="projects">
+      <h2>Nuestros Proyectos</h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <h3>Proyecto 1</h3>
+          <p>Descripción del proyecto</p>
+        </div>
+        <div class="project-card">
+          <h3>Proyecto 2</h3>
+          <p>Descripción del proyecto</p>
+        </div>
+        <div class="project-card">
+          <h3>Proyecto 3</h3>
+          <p>Descripción del proyecto</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacto" class="contact">
+      <h2>Contacto</h2>
+      <form id="contact-form">
+        <input type="text" placeholder="Nombre" required>
+        <input type="email" placeholder="Correo electrónico" required>
+        <textarea placeholder="Mensaje" required></textarea>
+        <button type="submit" class="btn">Enviar</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Isa & Pao. Todos los derechos reservados.</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
 </html>
