@@ -62,16 +62,13 @@ function BrandRow({ reverse, className }: BrandScrollerProps) {
           {brands.map((brand) => (
             <div
               key={brand.alt}
-              className="flex items-center gap-3 w-32"
+              className="flex items-center justify-center w-36"
             >
               <img
                 alt={brand.alt}
-                className="pointer-events-none h-7 select-none dark:brightness-0 dark:invert"
+                className="pointer-events-none h-8 select-none dark:brightness-0 dark:invert"
                 src={brand.src}
               />
-              <span className="text-base font-semibold opacity-80">
-                {brand.alt}
-              </span>
             </div>
           ))}
         </div>
